@@ -1,0 +1,41 @@
+# Основные (parser + court_locator)
+requests>=2.31.0,<3
+urllib3>=2.0.0,<3
+charset-normalizer>=3.3.0,<4
+
+# court_locator: полигоны участков (point-in-polygon), опционально R-tree
+shapely>=2.0.0
+# rtree>=1.10.0  # опционально: ускорение поиска по полигонам (требует libspatialindex)
+
+# Периодическое обновление данных о судах (по желанию)
+schedule>=1.2.0
+
+# Геокодер: fallback без ключа (court_locator, parser/geo_court_parser)
+geopy>=2.3.0
+
+# Загрузка .env
+python-dotenv>=1.0.0
+
+# REST API сервиса подсудности (опционально)
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+
+# Парсинг ГАС, HTML
+beautifulsoup4>=4.12.0
+
+# Excel для записи результатов поиска по GPS и пакетной обработки
+openpyxl>=3.1.0
+pandas>=2.0.0
+
+# Celery + Redis (пакетная обработка)
+celery[redis]>=5.3.0
+
+# PostgreSQL + PostGIS (опционально)
+psycopg2-binary>=2.9.0
+
+# sqlite3 встроен в Python, отдельно не ставится
+
+# Русский NLP: spaCy + Natasha (морфология, синтаксис, NER)
+# После pip install: python -m spacy download ru_core_news_sm
+spacy>=3.7.2,<4
+natasha>=1.6.0

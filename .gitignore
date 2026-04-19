@@ -1,0 +1,18 @@
+# Секреты и ключи — не коммитить
+.env
+.env.local
+*.pem
+
+# Кэш и БД (опционально)
+*.sqlite
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.idea/
+*.log
+
+# Результаты пакетной обработки
+batch_outputs/
+batch_outputs/uploads/

@@ -1,0 +1,68 @@
+# Docker Compose: parserSupreme — API, Celery, Redis, PostgreSQL+PostGIS
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  postgres:
+    image: postgis/postgis:15-3.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: courts
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: .
+    command: uvicorn court_locator.api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      PG_DSN: postgresql://postgres:postgres@postgres:5432/courts
+      # Список судов остаётся sqlite; полигоны — PostGIS (не путать с COURTS_DB_BACKEND=postgres)
+      COURTS_SPATIAL_BACKEND: postgis
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+  celery_worker:
+    build: .
+    command: celery -A core.celery_app worker --loglevel=info
+    env_file:
+      - .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      PG_DSN: postgresql://postgres:postgres@postgres:5432/courts
+      COURTS_SPATIAL_BACKEND: postgis
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+volumes:
+  redis_data:
+  postgres_data:
