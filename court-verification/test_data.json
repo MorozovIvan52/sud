@@ -1,0 +1,19 @@
+{
+  "courts": [
+    {
+      "court_code": "520001",
+      "court_name": "Мировой судья участка № 1",
+      "court_type": "мировой",
+      "address": "603000, г. Нижний Новгород, ул. Большая Покровская, 1",
+      "source_accuracy": "medium",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[44.0, 56.32], [44.02, 56.32], [44.02, 56.34], [44.0, 56.34], [44.0, 56.32]]]
+      }
+    }
+  ],
+  "test_points": [
+    {"latitude": 56.3269, "longitude": 44.0056, "description": "Центр Нижнего Новгорода"},
+    {"latitude": 55.7558, "longitude": 37.6173, "description": "Москва"}
+  ]
+}
