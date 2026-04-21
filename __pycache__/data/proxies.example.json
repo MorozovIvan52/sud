@@ -1,0 +1,23 @@
+[
+  {
+    "url": "http://user:pass@msk-mts-01.proxy.ru:8080",
+    "region": "Москва",
+    "provider": "МТС",
+    "success_rate": 1.0,
+    "requests_count": 0
+  },
+  {
+    "url": "http://user:pass@spb-beeline-01.proxy.ru:3128",
+    "region": "СПб",
+    "provider": "Билайн",
+    "success_rate": 0.95,
+    "requests_count": 0
+  },
+  {
+    "url": "http://user:pass@ekb-rostelecom.proxy.ru:8080",
+    "region": "Екатеринбург",
+    "provider": "Ростелеком",
+    "success_rate": 1.0,
+    "requests_count": 0
+  }
+]

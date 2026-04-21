@@ -1,0 +1,71 @@
+{
+  "court": {
+    "name": "",
+    "address": "",
+    "index": "",
+    "jurisdiction_type": "по месту жительства ответчика",
+    "gpk_article": "ст. 28 ГПК РФ"
+  },
+  "plaintiff": {
+    "type": "organization",
+    "full_name": "ООО \"МФО Ромашка\"",
+    "ogrn": "1234567890123",
+    "inn": "7701234567",
+    "kpp": "770101001",
+    "address": "123456, г. Москва, ул. Примерная, д. 1",
+    "phone": "+7 (495) 123-45-67",
+    "email": "info@romashka.ru",
+    "representative": {
+      "fio": "Петров Петр Петрович",
+      "power_of_attorney_number": "1-2026",
+      "power_of_attorney_date": "2026-01-10"
+    }
+  },
+  "defendant": {
+    "fio": "",
+    "birth_date": "",
+    "passport_series": "",
+    "passport_number": "",
+    "passport_issued_by": "",
+    "passport_issue_date": "",
+    "address_registration": "",
+    "address_residence": ""
+  },
+  "claim": {
+    "claim_type": "взыскание задолженности по договору микрозайма",
+    "price": 0,
+    "principal_debt": 0,
+    "interest": 0,
+    "penalty": 0,
+    "state_duty": 0
+  },
+  "contract": {
+    "number": "",
+    "date": "",
+    "amount": 0,
+    "term_to": "",
+    "interest_rate": 0,
+    "payment_schedule": "",
+    "way_of_conclusion": "дистанционно/в офисе"
+  },
+  "facts": {
+    "pretrial_order": {
+      "is_required": false,
+      "demand_sent": true,
+      "demand_date": "",
+      "demand_delivery_proof": ""
+    },
+    "default_date": "",
+    "calculation_period_from": "",
+    "calculation_period_to": ""
+  },
+  "attachments": [
+    "Копия договора микрозайма",
+    "Расчёт задолженности",
+    "Копия требования (претензии) о погашении задолженности",
+    "Доказательства направления требования ответчику",
+    "Квитанция об оплате государственной пошлины",
+    "Доверенность представителя",
+    "Копия искового заявления для ответчика"
+  ]
+}
