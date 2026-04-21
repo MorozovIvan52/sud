@@ -40,7 +40,14 @@ python tests_run.py
 ### Перед релизом
 
 Чеклист Pass/Fail по сервисам и командам: **[docs/PROD_READINESS_CHECKLIST_RU.md](docs/PROD_READINESS_CHECKLIST_RU.md)**.  
-Автопроверка ядра (раздел 1): `python scripts/prod_preflight.py` · печать: `docs/prod_readiness_checklist_print.html`.
+
+| Задача | Команда |
+|--------|---------|
+| Полная автопроверка ядра (СПб `law_rules` 1–211, pytest правил/подсудности, затем раздел 1 чеклиста как в `prod_preflight`) | `python scripts/release_verify.py` |
+| Только чеклист §1 без проверки PDF/СПб-блока | `python scripts/prod_preflight.py` |
+| Релиз + весь `pytest tests/` (долго) | `python scripts/release_verify.py --full-pytest` |
+
+Печатная таблица чеклиста: `docs/prod_readiness_checklist_print.html`.
 
 ---
 
